@@ -1,0 +1,261 @@
+{
+  "name": "iptables-firewall-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-adef5da8f9eb",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true,
+        "ipam": {
+          "provider": "containerlab"
+        }
+      }
+    }
+  },
+  "ssh-pub-keys": ["ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLLdD/Z4MIYNX7OjiPB0TqclAqkN0Q1YsSZxQgoTL4+7ugYxj5YLmuTc273DJWp9xrm7FarRhfjvw6WPqIN4jQM="],
+  "nodes": {
+    "dmz-server": {
+      "index": "0",
+      "shortname": "dmz-server",
+      "longname": "clab-iptables-firewall-lab-dmz-server",
+      "fqdn": "dmz-server.iptables-firewall-lab.io",
+      "group": "",
+      "labdir": "/home/clab/lab4/clab-iptables-firewall-lab/dmz-server",
+      "kind": "linux",
+      "image": "nginx:alpine",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "d0989a3",
+        "clab-mgmt-net-bridge": "br-adef5da8f9eb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/clab/lab4/clab-iptables-firewall-lab/dmz-server",
+        "clab-node-longname": "clab-iptables-firewall-lab-dmz-server",
+        "clab-node-name": "dmz-server",
+        "clab-node-type": "",
+        "clab-owner": "clab",
+        "clab-topo-file": "/home/clab/lab4/lab.clab.yml",
+        "containerlab": "iptables-firewall-lab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "lan-client": {
+      "index": "1",
+      "shortname": "lan-client",
+      "longname": "clab-iptables-firewall-lab-lan-client",
+      "fqdn": "lan-client.iptables-firewall-lab.io",
+      "group": "",
+      "labdir": "/home/clab/lab4/clab-iptables-firewall-lab/lan-client",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "d0989a3",
+        "clab-mgmt-net-bridge": "br-adef5da8f9eb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/clab/lab4/clab-iptables-firewall-lab/lan-client",
+        "clab-node-longname": "clab-iptables-firewall-lab-lan-client",
+        "clab-node-name": "lan-client",
+        "clab-node-type": "",
+        "clab-owner": "clab",
+        "clab-topo-file": "/home/clab/lab4/lab.clab.yml",
+        "containerlab": "iptables-firewall-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "router": {
+      "index": "2",
+      "shortname": "router",
+      "longname": "clab-iptables-firewall-lab-router",
+      "fqdn": "router.iptables-firewall-lab.io",
+      "group": "",
+      "labdir": "/home/clab/lab4/clab-iptables-firewall-lab/router",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "d0989a3",
+        "clab-mgmt-net-bridge": "br-adef5da8f9eb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/clab/lab4/clab-iptables-firewall-lab/router",
+        "clab-node-longname": "clab-iptables-firewall-lab-router",
+        "clab-node-name": "router",
+        "clab-node-type": "",
+        "clab-owner": "clab",
+        "clab-topo-file": "/home/clab/lab4/lab.clab.yml",
+        "containerlab": "iptables-firewall-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "wan-attacker": {
+      "index": "3",
+      "shortname": "wan-attacker",
+      "longname": "clab-iptables-firewall-lab-wan-attacker",
+      "fqdn": "wan-attacker.iptables-firewall-lab.io",
+      "group": "",
+      "labdir": "/home/clab/lab4/clab-iptables-firewall-lab/wan-attacker",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "d0989a3",
+        "clab-mgmt-net-bridge": "br-adef5da8f9eb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/clab/lab4/clab-iptables-firewall-lab/wan-attacker",
+        "clab-node-longname": "clab-iptables-firewall-lab-wan-attacker",
+        "clab-node-name": "wan-attacker",
+        "clab-node-type": "",
+        "clab-owner": "clab",
+        "clab-topo-file": "/home/clab/lab4/lab.clab.yml",
+        "containerlab": "iptables-firewall-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "wan-client": {
+      "index": "4",
+      "shortname": "wan-client",
+      "longname": "clab-iptables-firewall-lab-wan-client",
+      "fqdn": "wan-client.iptables-firewall-lab.io",
+      "group": "",
+      "labdir": "/home/clab/lab4/clab-iptables-firewall-lab/wan-client",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "d0989a3",
+        "clab-mgmt-net-bridge": "br-adef5da8f9eb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/clab/lab4/clab-iptables-firewall-lab/wan-client",
+        "clab-node-longname": "clab-iptables-firewall-lab-wan-client",
+        "clab-node-name": "wan-client",
+        "clab-node-type": "",
+        "clab-owner": "clab",
+        "clab-topo-file": "/home/clab/lab4/lab.clab.yml",
+        "containerlab": "iptables-firewall-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:15:54:5c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "lan-client",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:cc:58:d3",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:d3:32:08",
+          "peer": "z"
+        },
+        "z": {
+          "node": "dmz-server",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:87:ba:3c",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:01:d1:bb",
+          "peer": "z"
+        },
+        "z": {
+          "node": "wan-client",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:36:44:6c",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:10:9b:8b",
+          "peer": "z"
+        },
+        "z": {
+          "node": "wan-attacker",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:fc:26:27",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}
