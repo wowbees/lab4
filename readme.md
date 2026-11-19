@@ -7,5 +7,5 @@ sudo clab deploy -t lab.clab.yml
 # HOW TO DESTROY LAB
 
 ```bash
-sudo clab deploy -t lab.clab.yml
+sudo clab destroy -t lab.clab.yml
 ```
